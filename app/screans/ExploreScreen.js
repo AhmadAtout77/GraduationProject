@@ -18,7 +18,7 @@ import Fontisto from "react-native-vector-icons/Fontisto";
 
 import { markers } from "../modal/mapData";
 import StarRating from "../components/StarRating";
-
+import { useRoute } from "@react-navigation/native";
 import { useTheme } from "@react-navigation/native";
 import AppScreen from "../components/AppScreen";
 import AppText from "../components/AppText";
@@ -31,6 +31,9 @@ const SPACING_FOR_CARD_INSET = width * 0.1 - 10;
 
 function ExploreScreen({ navigation }) {
   const theme = useTheme();
+
+  const route = useRoute();
+  const { latitude, longitude } = route.params;
 
   const initialMapState = {
     markers,
@@ -73,8 +76,8 @@ function ExploreScreen({ navigation }) {
       },
     ],
     region: {
-      latitude: 22.62938671242907,
-      longitude: 88.4354486029795,
+      latitude: latitude,
+      longitude: longitude,
       latitudeDelta: 0.04864195044303443,
       longitudeDelta: 0.040142817690068,
     },
