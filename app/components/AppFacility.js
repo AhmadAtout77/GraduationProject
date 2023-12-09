@@ -6,16 +6,24 @@ import defaultStyles from "../config/styles";
 import colors from "../config/colors";
 import { TouchableOpacity } from "react-native";
 
-function AppFacility({ icon, text }) {
+function AppFacility({ icon, text, selected, onPress }) {
   return (
-    <TouchableOpacity>
-      <View style={styles.container}>
-        <MaterialCommunityIcons
-          name={icon}
-          size={25}
-          style={styles.icon}
-        ></MaterialCommunityIcons>
-        <AppText style={styles.text}>{text}</AppText>
+    <TouchableOpacity onPress={onPress}>
+      <View
+        style={[styles.container, selected ? styles.selectedContainer : null]}
+      >
+        <View style={{ flex: 0.2, alignItems: "center" }}>
+          <MaterialCommunityIcons
+            name={icon}
+            size={25}
+            style={[styles.icon, selected ? styles.selectedIcon : null]}
+          ></MaterialCommunityIcons>
+        </View>
+        <View style={{ flex: 0.8, alignItems: "center" }}>
+          <AppText style={[styles.text, selected ? styles.selectedText : null]}>
+            {text}
+          </AppText>
+        </View>
       </View>
     </TouchableOpacity>
   );
@@ -29,16 +37,28 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 10,
     borderColor: colors.primary,
-    width: 170,
+    width: 180,
     justifyContent: "center",
     marginVertical: 10,
+  },
+  selectedContainer: {
+    backgroundColor: colors.primary,
   },
   icon: {
     color: defaultStyles.colors.primary,
     marginRight: 5,
   },
+  selectedIcon: {
+    color: defaultStyles.colors.white,
+  },
   text: {
     fontSize: 15,
+    fontWeight: "bold",
+    color: colors.black,
+  },
+  selectedText: {
+    color: colors.white,
   },
 });
+
 export default AppFacility;

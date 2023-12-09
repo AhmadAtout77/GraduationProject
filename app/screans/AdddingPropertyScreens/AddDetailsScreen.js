@@ -23,11 +23,59 @@ function AddDetailsScreen() {
     setOpen(!open);
   }
 
+  const [selectedFacilities, setSelectedFacilities] = useState([]);
+
+  const handleFacilitySelect = (text) => {
+    // Toggle the selected state for the clicked facility
+    setSelectedFacilities((prevSelectedFacilities) => {
+      const isFacilitySelected = prevSelectedFacilities.includes(text);
+
+      if (isFacilitySelected) {
+        // Facility is already selected, remove it from the list
+        return prevSelectedFacilities.filter((facility) => facility !== text);
+      } else {
+        // Facility is not selected, add it to the list
+        return [...prevSelectedFacilities, text];
+      }
+    });
+  };
+
   const handleOnPress = () => {
     navigation.popToTop();
     navigation.popToTop();
     setOpen(!open);
   };
+
+  const facilityData = [
+    { icon: "power-socket", text: "Electricity", selected: false },
+    { icon: "water", text: "Water", selected: false },
+    { icon: "gas-cylinder", text: "Gas", selected: false },
+    { icon: "air-conditioner", text: "Air Conditioning", selected: false },
+    { icon: "thermometer", text: "Heating", selected: false },
+    { icon: "fire", text: "Fireplace", selected: false },
+    { icon: "television", text: "TV Cable", selected: false },
+    { icon: "wifi", text: "Wi-Fi", selected: false },
+    { icon: "stove", text: "Stove", selected: false },
+    { icon: "toaster-oven", text: "Oven", selected: false },
+    { icon: "fridge", text: "Refrigerator", selected: false },
+    { icon: "microwave", text: "Microwave", selected: false },
+    { icon: "dishwasher", text: "Dishwasher", selected: false },
+    { icon: "washing-machine", text: "Washer", selected: false },
+    { icon: "tumble-dryer", text: "Dryer", selected: false },
+    { icon: "car", text: "Parking", selected: false },
+    { icon: "parking", text: "Covered Parking", selected: false },
+    { icon: "security", text: "Security system", selected: false },
+    { icon: "balcony", text: "Balcony", selected: false },
+    { icon: "inbox", text: "Storage room", selected: false },
+    { icon: "dog", text: "Pet-friendly policy", selected: false },
+    { icon: "elevator", text: "Elevator", selected: false },
+    {
+      icon: "wheelchair-accessibility",
+      text: "Wheelchair accessibility",
+      selected: false,
+    },
+  ];
+
   return (
     <AppScreen>
       <ScrollView>
@@ -93,11 +141,15 @@ function AddDetailsScreen() {
             Select the facilities available in your property:-
           </AppText>
           <View style={styles.facilities}>
-            <AppFacility icon={"home"} text={"home"}></AppFacility>
-            <AppFacility icon={"home"} text={"home"}></AppFacility>
-            <AppFacility icon={"home"} text={"home"}></AppFacility>
-            <AppFacility icon={"home"} text={"home"}></AppFacility>
-            <AppFacility icon={"home"} text={"home"}></AppFacility>
+            {facilityData.map((facility) => (
+              <AppFacility
+                key={facility.text}
+                icon={facility.icon}
+                text={facility.text}
+                selected={selectedFacilities.includes(facility.text)}
+                onPress={() => handleFacilitySelect(facility.text)}
+              />
+            ))}
           </View>
         </View>
         <View style={styles.button}>
@@ -160,7 +212,10 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   facilities: {
-    alignItems: "center",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    padding: 10,
   },
   button: {
     alignItems: "center",
