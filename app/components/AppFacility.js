@@ -6,11 +6,15 @@ import defaultStyles from "../config/styles";
 import colors from "../config/colors";
 import { TouchableOpacity } from "react-native";
 
-function AppFacility({ icon, text, selected, onPress }) {
+function AppFacility({ icon, text, selected, onPress, style }) {
   return (
     <TouchableOpacity onPress={onPress}>
       <View
-        style={[styles.container, selected ? styles.selectedContainer : null]}
+        style={[
+          styles.container,
+          selected ? styles.selectedContainer : null,
+          style,
+        ]}
       >
         <View style={{ flex: 0.2, alignItems: "center" }}>
           <MaterialCommunityIcons
