@@ -4,11 +4,14 @@ import { View, StyleSheet } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import AppText from "../../components/AppText";
 import AppButton from "../../components/AppButton";
+import { useRoute } from "@react-navigation/native";
 
 function PickingFromMapScreen({ navigation }) {
+  const route = useRoute();
+  const { latitude, longitude } = route.params;
   const [center, setCenter] = useState({
-    latitude: 37.78825,
-    longitude: -122.4322,
+    latitude: latitude,
+    longitude: longitude,
   });
 
   const handleContinuePress = () => {
