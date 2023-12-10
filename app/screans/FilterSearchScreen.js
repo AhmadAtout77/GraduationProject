@@ -209,30 +209,48 @@ function FilterSearchScreen({ navigation }) {
             </View>
           </View>
           <View style={styles.rooms}>
-            <AppText style={{ marginLeft: 60 }}>Number of rooms:</AppText>
-
-            <AppPicker
-              selectedItem={item}
-              onSelectItem={(item) => {
-                setItem(item);
+            <View
+              style={{
+                flex: 0.5,
+                alignItems: "flex-end",
+                justifyContent: "center",
               }}
-              style={{ height: 60, width: 70, margin: 10 }}
-              icon={"menu-down"}
-              items={numbers}
-            ></AppPicker>
+            >
+              <AppText>Number of rooms:</AppText>
+            </View>
+            <View style={{ flex: 0.5, justifyContent: "center" }}>
+              <AppPicker
+                selectedItem={item}
+                onSelectItem={(item) => {
+                  setItem(item);
+                }}
+                style={{ height: 60, width: 70, margin: 10 }}
+                icon={"menu-down"}
+                items={numbers}
+              ></AppPicker>
+            </View>
           </View>
           <View style={styles.rooms}>
-            <AppText style={{ marginLeft: 60 }}>Select location:</AppText>
-
-            <AppPicker
-              selectedItem={cityItem}
-              onSelectItem={(item) => {
-                setCityItem(item);
+            <View
+              style={{
+                flex: 0.5,
+                alignItems: "flex-end",
+                justifyContent: "center",
               }}
-              style={{ height: 60, width: 150, margin: 10 }}
-              icon={"menu-down"}
-              items={cities}
-            ></AppPicker>
+            >
+              <AppText>Select location:</AppText>
+            </View>
+            <View style={{ flex: 0.5, justifyContent: "center" }}>
+              <AppPicker
+                selectedItem={cityItem}
+                onSelectItem={(item) => {
+                  setCityItem(item);
+                }}
+                style={{ height: 60, width: 150, margin: 10 }}
+                icon={"menu-down"}
+                items={cities}
+              ></AppPicker>
+            </View>
           </View>
           <AppButton
             style={{
@@ -353,7 +371,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginTop: 30,
     height: 60,
-    alignItems: "center",
   },
   date: {
     backgroundColor: "white",
