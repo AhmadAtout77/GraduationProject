@@ -1,11 +1,11 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import MessegesScrean from "../screans/MessegesScrean";
 import ProfileNavigator from "./ProfileNavigator";
 import MapSearchnavigator from "./MapSearchNavigator";
 import colors from "../config/colors";
 import WishListNavigator from "./WishListNavigator";
 import HomeNavigator from "./HomeNavigator";
+import ChatNavigator from "./ChatNavigator";
 const Tab = createBottomTabNavigator();
 
 const properties = [
@@ -88,8 +88,8 @@ const AppNavigator = () => (
       }}
     ></Tab.Screen>
     <Tab.Screen
-      name="chat"
-      component={MessegesScrean}
+      name="chatting"
+      component={ChatNavigator}
       options={{
         tabBarIcon: ({ color, size }) => (
           <MaterialCommunityIcons name="chat" color={color} size={size} />

@@ -262,6 +262,7 @@ function PropertyDetailsScreen({ property, navigation }) {
           <AppButton
             style={{ width: "50%", backgroundColor: "black" }}
             title={"Contact owner"}
+            onPress={() => navigation.navigate("userChat")}
           ></AppButton>
           <AppButton style={{ width: "40%" }} title={"Book Now"}></AppButton>
         </View>

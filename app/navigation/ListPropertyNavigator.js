@@ -8,7 +8,7 @@ import PickingFromMapScreen from "../screans/AdddingPropertyScreens/PickingFromM
 import PickImagesScreen from "../screans/AdddingPropertyScreens/PickImagesScreen";
 import AddVideoScreen from "../screans/AdddingPropertyScreens/AddVideoScreen";
 import AddDetailsScreen from "../screans/AdddingPropertyScreens/AddDetailsScreen";
-
+import ChatScreen from "../screans/ChatScreen";
 const Stack = createNativeStackNavigator();
 const ListPropertyNavigator = () => (
   <Stack.Navigator
@@ -49,6 +49,11 @@ const ListPropertyNavigator = () => (
     <Stack.Screen
       name="Details"
       component={AddDetailsScreen}
+      options={{ headerShown: false }}
+    ></Stack.Screen>
+    <Stack.Screen
+      name="userChat"
+      component={ChatScreen}
       options={{ headerShown: false }}
     ></Stack.Screen>
   </Stack.Navigator>

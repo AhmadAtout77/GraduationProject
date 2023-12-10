@@ -5,7 +5,7 @@ import PropertyDetailsScreen from "../screans/PropertyDetailsScreen";
 import ListItemsScrean from "../screans/ListItemsScrean";
 import ReviewsScreen from "../screans/ReviewsScreen";
 import UserProfileScreen from "../screans/UserProfileScreen";
-
+import ChatScreen from "../screans/ChatScreen";
 const Stack = createNativeStackNavigator();
 const MapSearchnavigator = () => (
   <Stack.Navigator
@@ -31,6 +31,11 @@ const MapSearchnavigator = () => (
     <Stack.Screen
       name="reviewUser"
       component={UserProfileScreen}
+      options={{ headerShown: false }}
+    ></Stack.Screen>
+    <Stack.Screen
+      name="userChat"
+      component={ChatScreen}
       options={{ headerShown: false }}
     ></Stack.Screen>
   </Stack.Navigator>

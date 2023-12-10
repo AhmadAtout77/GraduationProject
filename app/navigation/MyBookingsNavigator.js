@@ -6,7 +6,7 @@ import PropertyDetailsScreen from "../screans/PropertyDetailsScreen";
 import AddReviewScreen from "../screans/AddReviewScreen";
 import ReviewsScreen from "../screans/ReviewsScreen";
 import UserProfileScreen from "../screans/UserProfileScreen";
-
+import ChatScreen from "../screans/ChatScreen";
 const Stack = createNativeStackNavigator();
 const MyBookingsNavigator = () => (
   <Stack.Navigator
@@ -38,6 +38,11 @@ const MyBookingsNavigator = () => (
     <Stack.Screen
       name="reviewUser"
       component={UserProfileScreen}
+      options={{ headerShown: false }}
+    ></Stack.Screen>
+    <Stack.Screen
+      name="userChat"
+      component={ChatScreen}
       options={{ headerShown: false }}
     ></Stack.Screen>
   </Stack.Navigator>

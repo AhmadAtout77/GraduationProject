@@ -32,7 +32,7 @@ const initialMesseges = [
   },
 ];
 
-function MessegesScrean(props) {
+function MessegesScrean({ navigation }) {
   const [messeges, setMesseges] = useState(initialMesseges);
   const [refreshing, setrefreshing] = useState(false);
 
@@ -51,7 +51,7 @@ function MessegesScrean(props) {
             title={item.title}
             subTitle={item.description}
             image={item.image}
-            onPress={() => console.log("ahmad")}
+            onPress={() => navigation.navigate("chat")}
             renderRightActions={() => (
               <ListItemDeleteAction onPress={() => handleDelete(item)} />
             )}
