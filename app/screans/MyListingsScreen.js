@@ -63,6 +63,7 @@ function MyListingsScreen({ navigation }) {
           title={"Booking Requests"}
           style={styles.requestsButton}
           textStyle={{ color: colors.primary }}
+          onPress={() => navigation.navigate("BookingRequests")}
         ></AppButton>
       </View>
       <FlatList
