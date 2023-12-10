@@ -1,8 +1,11 @@
 import React from "react";
-import { FlatList, StyleSheet } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 import AppScreen from "../components/AppScreen";
 import defaultStyles from "../config/styles";
 import MyListing from "../components/MyListing";
+import AppButton from "../components/AppButton";
+import colors from "../config/colors";
+import AppText from "../components/AppText";
 
 const properties = [
   {
@@ -50,6 +53,18 @@ const properties = [
 function MyListingsScreen({ navigation }) {
   return (
     <AppScreen style={styles.container}>
+      <View>
+        <View style={styles.notification}>
+          <AppText style={{ color: colors.white, fontWeight: "bold" }}>
+            3
+          </AppText>
+        </View>
+        <AppButton
+          title={"Booking Requests"}
+          style={styles.requestsButton}
+          textStyle={{ color: colors.primary }}
+        ></AppButton>
+      </View>
       <FlatList
         data={properties}
         keyExtractor={(property) => property.id.toString()}
@@ -72,6 +87,28 @@ const styles = StyleSheet.create({
   },
   container: {
     backgroundColor: defaultStyles.colors.light,
+  },
+  requestsButton: {
+    width: "80%",
+    alignSelf: "center",
+    backgroundColor: "white",
+    borderWidth: 1,
+    borderColor: colors.primary,
+    height: 60,
+    borderRadius: 15,
+    zIndex: 1,
+  },
+  notification: {
+    width: 30,
+    height: 30,
+    backgroundColor: colors.primary,
+    borderRadius: 15,
+    justifyContent: "center",
+    alignItems: "center",
+    position: "absolute",
+    right: "15%",
+    top: "30%",
+    zIndex: 2,
   },
 });
 
