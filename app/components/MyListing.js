@@ -7,7 +7,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AppText from "./AppText";
 import colors from "../config/colors";
 
-function MyListing({ style, property, viewBookings }) {
+function MyListing({ style, property, viewBookings, EditDetails }) {
   return (
     <View style={[styles.container, style]}>
       <View style={styles.swiper}>
@@ -60,7 +60,7 @@ function MyListing({ style, property, viewBookings }) {
           </View>
         </View>
         <View style={styles.button}>
-          <TouchableOpacity onPress={viewBookings}>
+          <TouchableOpacity style={{ marginBottom: 10 }} onPress={viewBookings}>
             <AppText
               style={{
                 fontSize: 15,
@@ -69,6 +69,17 @@ function MyListing({ style, property, viewBookings }) {
               }}
             >
               View Bookings
+            </AppText>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={EditDetails}>
+            <AppText
+              style={{
+                fontSize: 15,
+                color: colors.primary,
+                fontWeight: "bold",
+              }}
+            >
+              Edit Details
             </AppText>
           </TouchableOpacity>
           <AppButton
@@ -85,7 +96,7 @@ function MyListing({ style, property, viewBookings }) {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    height: 300,
+    height: 320,
     backgroundColor: defaultStyles.colors.white,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,

@@ -56,6 +56,7 @@ function MyListingsScreen({ navigation }) {
         renderItem={({ item }) => (
           <MyListing
             viewBookings={() => navigation.navigate("PropertyBookings")}
+            EditDetails={() => navigation.navigate("EditDetails")}
             style={styles.item}
             property={item}
           />

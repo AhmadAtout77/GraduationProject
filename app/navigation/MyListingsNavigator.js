@@ -4,6 +4,7 @@ import defaultStyles from "../config/styles";
 import MyListingsScreen from "../screans/MyListingsScreen";
 import PropertyBookingsScreen from "../screans/PropertyBookingsScreen";
 import UserProfileScreen from "../screans/UserProfileScreen";
+import EditPropertyDetailsScreen from "../screans/EditPropertyDetailsScreen";
 
 const Stack = createNativeStackNavigator();
 const MyListingsNavigator = () => (
@@ -15,6 +16,11 @@ const MyListingsNavigator = () => (
     <Stack.Screen
       name="MyListings"
       component={MyListingsScreen}
+      options={{ headerShown: false }}
+    ></Stack.Screen>
+    <Stack.Screen
+      name="EditDetails"
+      component={EditPropertyDetailsScreen}
       options={{ headerShown: false }}
     ></Stack.Screen>
     <Stack.Screen
